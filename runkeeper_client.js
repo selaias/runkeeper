@@ -33,10 +33,9 @@ Runkeeper.requestCredential = function (options, credentialRequestCompleteCallba
 
   var loginUrl =
         'https://runkeeper.com/apps/authorize?client_id=' + config.client_id +
-        //'&redirect_uri=http://notredame.meteorlabs.be/_oauth/runkeeper?close' + 
         '&redirect_uri=' + OAuth._redirectUri('runkeeper', config) +
         '&display=' + display + '&scope=' + scope +
-        '&response_type=code&_sourcePage=null' +
+        '&response_type=code' +
         '&state=' + OAuth._stateParam(loginStyle, credentialToken);
 
   OAuth.launchLogin({

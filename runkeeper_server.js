@@ -1,5 +1,5 @@
 var Future = Npm.require('fibers/future');
-var request = Meteor.npmRequire('request')
+var request = Npm.require('request')
 
 
 Runkeeper = {};

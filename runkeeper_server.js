@@ -14,8 +14,11 @@ OAuth.registerService('runkeeper', 2, null, function(query, callback) {
 
   var serviceData = {
     accessToken: accessToken,
-    expiresAt: (moment().add(30, 'days').format('x')),
-    id: userData.userID
+    expiresAt: moment().add(30, 'days').format('X'),
+    id: userData.userID,
+    name: profileData.name,
+    small_picture: profileData.small_picture,
+    localtion: profileData.location
   };
 
   // include all fields from runkeeper

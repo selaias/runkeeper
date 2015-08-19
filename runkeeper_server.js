@@ -6,7 +6,8 @@ Runkeeper = {};
 
 OAuth.registerService('runkeeper', 2, null, function(query, callback) {
 
-  var accessToken= getTokenResponse(query)
+  var response = getTokenResponse(query);
+  var accessToken = response.access_token;
 
   var userData = getUserData(accessToken)
 
@@ -14,7 +15,7 @@ OAuth.registerService('runkeeper', 2, null, function(query, callback) {
 
   var serviceData = {
     accessToken: accessToken,
-    expiresAt: moment().add(30, 'days').format('X'),
+    expiresAt: (+new Date) + (1000 * response.expires_in),
     id: userData.userID,
     name: profileData.name,
     small_picture: profileData.small_picture,
@@ -78,7 +79,7 @@ var getTokenResponse = function (query) {
       error = new Meteor.Error(204, 'Response is not a valid JSON string.');
       fut.throw(error);
     } finally {
-      fut.return(responseContent.access_token);
+      fut.return(responseContent);
     }
   });
   var res = fut.wait();

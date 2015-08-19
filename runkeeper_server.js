@@ -15,7 +15,6 @@ OAuth.registerService('runkeeper', 2, null, function(query, callback) {
 
   var serviceData = {
     accessToken: accessToken,
-    expiresAt: (+new Date) + (1000 * response.expires_in),
     id: userData.userID,
     name: profileData.name,
     small_picture: profileData.small_picture,

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'selaias:runkeeper',
-  version: '0.9.0',
+  version: '1.0.0',
   summary: 'An implementation of the Runkeeper OAuth flow.',
   git: 'https://github.com/selaias/runkeeper.git',
   documentation: 'README.md'
